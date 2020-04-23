@@ -18,7 +18,7 @@ and support existing ones.
 
 ###### View class
 ```
-	[ViewBase(alias: "Main Google page")]
+[ViewBase(alias: "Main Google page")]
     public class MainGooglePage:View
     {
         public MainGooglePage()
@@ -45,7 +45,7 @@ and support existing ones.
 
 ###### Controls class
 ```
-	public class TextBox:Control
+public class TextBox:Control
     {
         public TextBox(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
         {
@@ -77,7 +77,7 @@ and support existing ones.
     }
 ```
 ```
-	public class Button:Control
+public class Button:Control
     {
         public Button(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
         {
@@ -93,7 +93,7 @@ and support existing ones.
 
 ###### Test class
 ```
-	[TestFixture]
+[TestFixture]
     public class Hooks
     {
         private TwinkleView _twinkleView;
