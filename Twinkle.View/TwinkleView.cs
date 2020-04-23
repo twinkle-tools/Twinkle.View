@@ -208,12 +208,12 @@ namespace Twinkle.View
                 foreach (var view in SystemContext.Views.AllViews)
                 {
                     List<PropertyInfo> controlsView = view.Key.GetProperties().Where(
-                        prop => Attribute.IsDefined(prop, typeof(ControlBaseAttribute))).ToList();
+                        prop => Attribute.IsDefined(prop, typeof(ControlAttribute))).ToList();
                     foreach (var propertyInfo in controlsView)
                     {
                         var type = propertyInfo.PropertyType;
-                        var controlAttribute = propertyInfo.GetCustomAttributes(typeof(ControlBaseAttribute), true).FirstOrDefault() as
-                            ControlBaseAttribute;
+                        var controlAttribute = propertyInfo.GetCustomAttributes(typeof(ControlAttribute), true).FirstOrDefault() as
+                            ControlAttribute;
 
                         var prefix = ((ViewAttribute)view.Key.GetCustomAttribute(typeof(ViewAttribute), true)).Prefix;
                         Control newVal = (Control)Activator.CreateInstance(
@@ -455,7 +455,7 @@ namespace Twinkle.View
             foreach (var view in SystemContext.Views.ActiveViews)
             {
                 var controlsView = view.Key.GetProperties().Where(
-                    prop => Attribute.IsDefined(prop, typeof(ControlBaseAttribute))).ToList();
+                    prop => Attribute.IsDefined(prop, typeof(ControlAttribute))).ToList();
 
                 foreach (var propertyInfo in controlsView)
                 {
@@ -482,7 +482,7 @@ namespace Twinkle.View
             foreach (var view in SystemContext.Views.ActiveViews)
             {
                 var controlsView = view.Key.GetProperties().Where(
-                    prop => Attribute.IsDefined(prop, typeof(ControlBaseAttribute))).ToList();
+                    prop => Attribute.IsDefined(prop, typeof(ControlAttribute))).ToList();
 
                 foreach (var propertyInfo in controlsView)
                 {

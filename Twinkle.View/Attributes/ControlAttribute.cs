@@ -6,16 +6,16 @@ namespace Twinkle.View.Attributes
     /// Marks property as view control
     /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = true)]
-    public class ControlBaseAttribute:TwinkleBaseAttribute
+    public class ControlAttribute:TwinkleBaseAttribute
     {
-        public ControlBaseAttribute(string alias, string xPath, string css)
+        public ControlAttribute(string alias, string xPath, string css)
         {
             Alias = alias;
             XPath = xPath;
             Css = css;
         }
 
-        public ControlBaseAttribute() { }
+        public ControlAttribute() { }
 
         /// <summary>
         /// Provides possible control call names

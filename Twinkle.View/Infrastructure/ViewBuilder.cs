@@ -95,7 +95,7 @@ namespace Twinkle.View.Infrastructure
             setIl.Emit(OpCodes.Ret);
 
             var attrCtorParams = new Type[] { typeof(string), typeof(string), typeof(string) };
-            var attrCtorInfo = typeof(ControlBaseAttribute).GetConstructor(attrCtorParams);
+            var attrCtorInfo = typeof(ControlAttribute).GetConstructor(attrCtorParams);
             var attrBuilder = new CustomAttributeBuilder(attrCtorInfo, new object[] { aliasControl, xpathControl, cssControl });
             propertyBuilder.SetCustomAttribute(attrBuilder);
 

@@ -15,13 +15,13 @@ namespace Twinkle.View.Test.Infrastructure.Views
             AddHook(TypeHook.POST, "Search Input", "GetValue", () => ExampleThrowException("after get value for search input"));
         }
         
-        [ControlBase(alias: "Search Input", xPath: ".//input[@name='q']", css: "")]
+        [Control(alias: "Search Input", xPath: ".//input[@name='q']", css: "")]
         public TextBox SearchInput { get; set; }
         
-        [ControlBase(alias: "Search In Google", xPath: ".//input[@name='btnK']", css: "")]
+        [Control(alias: "Search In Google", xPath: ".//input[@name='btnK']", css: "")]
         public Button SearchInGoogle { get; set; }
         
-        [ControlBase(alias: "I`ll Be Lucky", xPath: ".//input[@name='btnI']", css: "")]
+        [Control(alias: "I`ll Be Lucky", xPath: ".//input[@name='btnI']", css: "")]
         public Button WillBeLucky { get; set; }
 
         public void ExampleThrowException(string message = "")
