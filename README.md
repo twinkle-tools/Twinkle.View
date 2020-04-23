@@ -18,7 +18,7 @@ and support existing ones.
 
 ###### View class
 ```
-[ViewBase(alias: "Main Google page")]
+[View(alias: "Main Google page")]
 public class MainGooglePage:View
 {
     public MainGooglePage()
