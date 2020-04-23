@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.5.0/build/netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.api.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/NUnit3.TestAdapter.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Sheldon.View.927002881.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Sheldon.View.sln" t="IncludeFlat" />
+      <e p="Twinkle.View" t="IncludeRecursive">
+        <e p="Attributes" t="Include">
+          <e p="BaseHookAttribute.cs" t="Include" />
+          <e p="ControlAttribute.cs" t="Include" />
+          <e p="HandlerAttribute.cs" t="Include" />
+          <e p="HookAttribute.cs" t="Include" />
+          <e p="OperationAttribute.cs" t="Include" />
+          <e p="PostHookAttribute.cs" t="Include" />
+          <e p="PreHookAttribute.cs" t="Include" />
+          <e p="SelenetAttribute.cs" t="Include" />
+          <e p="ViewAttribute.cs" t="Include" />
+          <e p="ViewDefinitionCriteriaAttribute.cs" t="Include" />
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Control.cs" t="Include" />
+        <e p="FodyWeavers.xml" t="Include" />
+        <e p="Hook.cs" t="Include" />
+        <e p="Infrastructure" t="Include">
+          <e p="Context.cs" t="Include" />
+          <e p="DI.cs" t="Include" />
+          <e p="GlobalConfiguraionFramework.cs" t="Include" />
+          <e p="ReflectionExtensions.cs" t="Include" />
+          <e p="ViewBuilder.cs" t="Include" />
+          <e p="Views.cs" t="Include" />
+        </e>
+        <e p="Interfaces" t="Include">
+          <e p="IControl.cs" t="Include" />
+          <e p="IView.cs" t="Include" />
+          <e p="IViewDefinitionCriteria.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.1" t="Include">
+              <e p="Twinkle.View.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="publishToLocal.ps1" t="Include" />
+        <e p="readme.txt" t="Include" />
+        <e p="SheldonOption.cs" t="Include" />
+        <e p="SheldonView.cs" t="Include" />
+        <e p="SheldonView.nuspec" t="Include" />
+        <e p="SheldonViewSettings.json" t="Include" />
+        <e p="todo.txt" t="Include" />
+        <e p="Twinkle.View.csproj" t="IncludeRecursive" />
+        <e p="View.cs" t="Include" />
+      </e>
+      <e p="Twinkle.View.Test" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="FodyWeavers.xml" t="Include" />
+        <e p="Infrastructure" t="Include">
+          <e p="Controls" t="Include">
+            <e p="Button.cs" t="Include" />
+            <e p="TextBox.cs" t="Include" />
+          </e>
+          <e p="Views" t="Include">
+            <e p="MainGooglePage.cs" t="Include" />
+            <e p="ResultGooglePage.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Twinkle.View.Test.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Sheldon.View.AdditionalSettings.cs" t="Include" />
+        <e p="SheldonViewSettings.json" t="Include" />
+        <e p="Tests" t="Include">
+          <e p="Hooks.cs" t="Include" />
+        </e>
+        <e p="Twinkle.View.Test.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>

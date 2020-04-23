@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twinkle.View", "Twinkle.View\Twinkle.View.csproj", "{387F84AD-7A9D-45CC-875B-F0E1F05D5649}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Twinkle.View.Test", "Twinkle.View.Test\Twinkle.View.Test.csproj", "{88FB2A3E-4F82-4385-A4DA-BB59FF0CAF6E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{387F84AD-7A9D-45CC-875B-F0E1F05D5649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387F84AD-7A9D-45CC-875B-F0E1F05D5649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387F84AD-7A9D-45CC-875B-F0E1F05D5649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387F84AD-7A9D-45CC-875B-F0E1F05D5649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88FB2A3E-4F82-4385-A4DA-BB59FF0CAF6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88FB2A3E-4F82-4385-A4DA-BB59FF0CAF6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88FB2A3E-4F82-4385-A4DA-BB59FF0CAF6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88FB2A3E-4F82-4385-A4DA-BB59FF0CAF6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

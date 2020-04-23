@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>Twinkle.View</Title>
+        <Copyright>Twinkle</Copyright>
+        <NuspecFile>$(MSBuildThisFileDirectory)View.nuspec</NuspecFile>
+        <Authors>Twinkle</Authors>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Fody" Version="6.1.1" />
+      <PackageReference Include="MethodDecorator.Fody" Version="1.1.0" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.3" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+      <PackageReference Include="NLog" Version="4.7.0" />
+      <PackageReference Include="SimpleInjector" Version="4.9.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Twinkle.View.AdditionalSettings.cs" />
+    </ItemGroup>
+
+</Project>

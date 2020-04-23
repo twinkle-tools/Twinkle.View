@@ -1,0 +1,16 @@
+{
+  "view": {
+    "automatic_view_detection": false,
+    "dll_containing_views": "Twinkle.View.Test"
+  },
+  "control": {
+    "search_control_in_active_views": {
+      "number_of_retries": 50,
+      "time_between_retries_ms": 200
+    },
+    "dll_containing_controls": "Twinkle.View.Test"
+  },
+  "common": {
+    "logging_enable": false
+  }
+}

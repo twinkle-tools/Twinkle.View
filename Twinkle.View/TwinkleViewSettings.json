@@ -1,0 +1,16 @@
+{
+  "view": {
+    "automatic_view_detection": true,
+    "dll_containing_views": ""
+  },
+  "control": {
+    "search_control_in_active_views": {
+      "number_of_retries": 1,
+      "time_between_retries_ms": 0
+    },
+    "dll_containing_controls": ""
+  },
+  "common": {
+    "logging_enable": true
+  }
+}
