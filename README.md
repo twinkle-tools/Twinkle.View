@@ -19,98 +19,100 @@ and support existing ones.
 ###### View class
 ```
 [ViewBase(alias: "Main Google page")]
-    public class MainGooglePage:View
+public class MainGooglePage:View
+{
+    public MainGooglePage()
     {
-        public MainGooglePage()
-        {
-            AddHook(TypeHook.PRE, "Search Input", "SetValue", () => ExampleThrowException("before set value for search input"));
-            AddHook(TypeHook.POST, "Search Input", "GetValue", () => ExampleThrowException("after get value for search input"));
-        }
-        
-        [ControlBase(alias: "Search Input", xPath: ".//input[@name='q']", css: "")]
-        public TextBox SearchInput { get; set; }
-        
-        [ControlBase(alias: "Search In Google", xPath: ".//input[@name='btnK']", css: "")]
-        public Button SearchInGoogle { get; set; }
-        
-        [ControlBase(alias: "I`ll Be Lucky", xPath: ".//input[@name='btnI']", css: "")]
-        public Button WillBeLucky { get; set; }
-
-        public void ExampleThrowException(string message = "")
-        {
-            throw new Exception(message);
-        }
+        AddHook(TypeHook.PRE, "Search Input", "SetValue", () => ExampleThrowException("before set value for search input"));
+        AddHook(TypeHook.POST, "Search Input", "GetValue", () => ExampleThrowException("after get value for search input"));
     }
+        
+    [ControlBase(alias: "Search Input", xPath: ".//input[@name='q']", css: "")]
+    public TextBox SearchInput { get; set; }
+        
+    [ControlBase(alias: "Search In Google", xPath: ".//input[@name='btnK']", css: "")]
+    public Button SearchInGoogle { get; set; }
+        
+    [ControlBase(alias: "I`ll Be Lucky", xPath: ".//input[@name='btnI']", css: "")]
+    public Button WillBeLucky { get; set; }
+
+    public void ExampleThrowException(string message = "")
+    {
+        throw new Exception(message);
+    }
+}
 ```
 
 ###### Controls class
 ```
 public class TextBox:Control
+{
+public TextBox(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
     {
-        public TextBox(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
-        {
-        }
 
-        [Operation(Alias = "SetValue")]
-        public void SetValue(string value)
-        {
-            
-        }
-        
-        [Operation(Alias = "GetValue")]
-        public string GetValue()
-        {
-            return "";
-        }
-        
-        [Operation(Alias = "ClearValue")]
-        public void ClearValue()
-        {
-            
-        }
-        
-        [Operation(Alias = "AddValue")]
-        public void AddValue(string value)
-        {
-            
-        }
     }
+
+    [Operation(Alias = "SetValue")]
+    public void SetValue(string value)
+    {
+
+    }
+        
+    [Operation(Alias = "GetValue")]
+    public string GetValue()
+    {
+        return "";
+    }
+        
+    [Operation(Alias = "ClearValue")]
+    public void ClearValue()
+    {
+         
+    }
+        
+    [Operation(Alias = "AddValue")]
+    public void AddValue(string value)
+    {
+            
+    }
+}
 ```
 ```
 public class Button:Control
+{
+    public Button(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
     {
-        public Button(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
-        {
-        }
 
-        [Operation(Alias = "Click")]
-        public void Click()
-        {
-            
-        }
     }
+
+    [Operation(Alias = "Click")]
+    public void Click()
+    {
+            
+    }
+}
 ```
 
 ###### Test class
 ```
 [TestFixture]
-    public class Hooks
+public class Hooks
+{
+    private TwinkleView _twinkleView;
+        
+    [SetUp]
+    public void SetUp()
     {
-        private TwinkleView _twinkleView;
-        
-        [SetUp]
-        public void SetUp()
-        {
-            _twinkleView = new TwinkleView();
-        }
-        
-        [Test]
-        public void ExecuteOperationWithPreHook()
-        {
-            _twinkleView.GetView<MainGooglePage>().SearchInput.SetValue("value");
-            _twinkleView.GetView<MainGooglePage>().SearchInGoogle.Click();
-        }        
+        _twinkleView = new TwinkleView();
     }
+        
+    [Test]
+    public void ExecuteOperationWithPreHook()
+    {
+        _twinkleView.GetView<MainGooglePage>().SearchInput.SetValue("value");
+        _twinkleView.GetView<MainGooglePage>().SearchInGoogle.Click();
+    }        
+}
 ```
 
 ## License
