@@ -54,7 +54,7 @@ namespace Twinkle.View.Infrastructure
                     null);
 
             var attrCtorParams = new Type[] { typeof(string), typeof(string), typeof(string []) };
-            var attrCtorInfo = typeof(ViewBaseAttribute).GetConstructor(attrCtorParams);
+            var attrCtorInfo = typeof(ViewAttribute).GetConstructor(attrCtorParams);
             var attrBuilder = new CustomAttributeBuilder(attrCtorInfo, new object[] { classAlias, classPrefix, classCriteria });
             tb.SetCustomAttribute(attrBuilder);
             tb.SetParent(Assembly.Load("Twinkle.View").GetTypes().First(t => t.Name == "View"));

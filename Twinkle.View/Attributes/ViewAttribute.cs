@@ -6,7 +6,7 @@ namespace Twinkle.View.Attributes
     /// Marks clases as view description
     /// </summary>
     [AttributeUsage(AttributeTargets.Class, AllowMultiple=false, Inherited=true)]
-    public class ViewBaseAttribute:TwinkleBaseAttribute
+    public class ViewAttribute:TwinkleBaseAttribute
     {
         /// <summary>
         /// Provides possible view call names
@@ -18,12 +18,12 @@ namespace Twinkle.View.Attributes
         /// </summary>
         public string Prefix { get; set; }
 
-        public ViewBaseAttribute(string alias)
+        public ViewAttribute(string alias)
         {
             Alias = alias;
         }
 
-        public ViewBaseAttribute(string alias, string prefix)
+        public ViewAttribute(string alias, string prefix)
         {
             Alias = alias;
             Prefix = prefix;

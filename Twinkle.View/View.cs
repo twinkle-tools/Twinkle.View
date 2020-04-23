@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Twinkle.View.Enums;
 
-namespace Twinkle.View.Infrastructure
+namespace Twinkle.View
 {
     public abstract class View
     {

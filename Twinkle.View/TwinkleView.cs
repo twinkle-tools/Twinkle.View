@@ -147,7 +147,7 @@ namespace Twinkle.View
 
                     foreach (Type type in collectionTypes)
                     {
-                        if (type.GetCustomAttributes(typeof(ViewBaseAttribute), false).Length > 0)
+                        if (type.GetCustomAttributes(typeof(ViewAttribute), false).Length > 0)
                         {
                             DI.RunTimeRegister(type, Lifestyle.Singleton);                            
                             AllViews.Add(type, null);
@@ -215,7 +215,7 @@ namespace Twinkle.View
                         var controlAttribute = propertyInfo.GetCustomAttributes(typeof(ControlBaseAttribute), true).FirstOrDefault() as
                             ControlBaseAttribute;
 
-                        var prefix = ((ViewBaseAttribute)view.Key.GetCustomAttribute(typeof(ViewBaseAttribute), true)).Prefix;
+                        var prefix = ((ViewAttribute)view.Key.GetCustomAttribute(typeof(ViewAttribute), true)).Prefix;
                         Control newVal = (Control)Activator.CreateInstance(
                             type,
                             prefix + controlAttribute.Alias,
@@ -223,7 +223,7 @@ namespace Twinkle.View
                             controlAttribute.Css,
                             this);
 
-                        var listHooks = ((Infrastructure.View) view.Value).Hooks.FindAll(x => x.AliasControl.Equals(controlAttribute.Alias));
+                        var listHooks = ((View) view.Value).Hooks.FindAll(x => x.AliasControl.Equals(controlAttribute.Alias));
                         newVal.Hooks = new List<Hook>(listHooks);
 
                         propertyInfo.SetValue(view.Value, newVal);
@@ -257,12 +257,12 @@ namespace Twinkle.View
                     SystemContext.Views.ActiveViews = new Dictionary<Type, object>();
                 foreach (var view in SystemContext.Views.AllViews)
                 {
-                    ((Infrastructure.View)view.Value).IsActive = false;
+                    ((View)view.Value).IsActive = false;
                 }
 
                 foreach (var assemblyViews in AssembliesViews)
                 {
-                    var viewExtensionsMethods = ReflectionExtensions.GetExtensionMethods(typeof(Infrastructure.View), assemblyViews);
+                    var viewExtensionsMethods = ReflectionExtensions.GetExtensionMethods(typeof(View), assemblyViews);
                     var preViewExtensionsMethods = viewExtensionsMethods
                         .Where(m => m.GetCustomAttributes(typeof(PreViewDefinitionCriteriaBaseAttribute), false).Length > 0)
                         .ToList();
@@ -276,7 +276,7 @@ namespace Twinkle.View
                 {
                     var resultCriteria = new List<bool>();
 
-                    var criteriaTargetView = ((Infrastructure.View) view.Value).ViewDefinitionCriteria;
+                    var criteriaTargetView = ((View) view.Value).ViewDefinitionCriteria;
 
                     foreach (var criteria in criteriaTargetView)
                     {
@@ -286,7 +286,7 @@ namespace Twinkle.View
                     if (criteriaTargetView.Count != 0 && !resultCriteria.Contains(false))
                     {
                         SystemContext.Views.ActiveViews.Add(view.Key, view.Value);
-                        ((Infrastructure.View) view.Value).IsActive = true;
+                        ((View) view.Value).IsActive = true;
                     }
                 }
                 swGetActiveViews.Stop();

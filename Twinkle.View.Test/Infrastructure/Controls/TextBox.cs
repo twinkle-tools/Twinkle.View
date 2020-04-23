@@ -12,7 +12,7 @@ namespace Twinkle.View.Test.Infrastructure.Controls
         [Operation(Alias = "SetValue")]
         public void SetValue(string value)
         {
-            Console.WriteLine("");
+            
         }
         
         [Operation(Alias = "GetValue")]
