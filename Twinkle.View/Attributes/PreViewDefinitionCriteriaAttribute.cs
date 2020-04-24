@@ -6,7 +6,7 @@ namespace Twinkle.View.Attributes
     /// Marks methods that execute before methods, that defines view
     /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
-    public class PreViewDefinitionCriteriaBaseAttribute : TwinkleBaseAttribute
+    public class PreViewDefinitionCriteriaAttribute : TwinkleBaseAttribute
     {
 
     }

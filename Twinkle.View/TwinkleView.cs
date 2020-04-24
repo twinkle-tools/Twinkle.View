@@ -264,7 +264,7 @@ namespace Twinkle.View
                 {
                     var viewExtensionsMethods = ReflectionExtensions.GetExtensionMethods(typeof(View), assemblyViews);
                     var preViewExtensionsMethods = viewExtensionsMethods
-                        .Where(m => m.GetCustomAttributes(typeof(PreViewDefinitionCriteriaBaseAttribute), false).Length > 0)
+                        .Where(m => m.GetCustomAttributes(typeof(PreViewDefinitionCriteriaAttribute), false).Length > 0)
                         .ToList();
                     foreach (var preViewExtensionsMethod in preViewExtensionsMethods)
                     {
