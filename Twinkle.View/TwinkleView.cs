@@ -322,133 +322,12 @@ namespace Twinkle.View
         }
 
         /// <summary>
-        /// Getting a view by type
-        /// </summary>
-        /// <typeparam name="T">Type to which the view is to be given</typeparam>
-        /// <returns>Object of view</returns>
-        public T GetView<T>()
-        {
-            return (T)SystemContext.Views.AllViews[typeof(T)];
-        }
-
-        /// <summary>
-        /// Getting a presentation on alias
-        /// </summary>
-        /// <typeparam name="T">Type to which the view is to be given</typeparam>
-        /// <param name="alias">View alias</param>
-        /// <returns></returns>
-        public T GetView<T>(string alias)
-        {
-            return (T)SystemContext.Views.AllViews.FirstOrDefault(x=>x.Value.Equals(alias)).Value;
-        }
-        
-        /// <summary>
-        /// Creation of control by the transferred parameters
-        /// </summary>
-        /// <typeparam name="T">Type to which the control will be given</typeparam>
-        /// <param name="alias">Name</param>
-        /// <param name="xpath">Xpath</param>
-        /// <param name="css">Css</param>
-        /// <returns>Object of control</returns>
-        public T CreateControl<T>(string alias = "", string xpath = "", string css = "")
-        {
-            var resultControl = (T) Activator.CreateInstance(typeof(T));
-            typeof(T).GetProperty("Alias")?.SetValue(resultControl, alias);
-            typeof(T).GetProperty("XPath")?.SetValue(resultControl, xpath);
-            typeof(T).GetProperty("Css")?.SetValue(resultControl, css);
-            typeof(T).GetProperty("TwinkleView")?.SetValue(resultControl, this);
-            return resultControl;
-        }
-
-        /// <summary>
-        /// A public method of obtaining active views
-        /// </summary>
-        public void DefiniteActiveViews()
-        {
-            GetActiveViews();
-        }
-
-        /// <summary>
-        /// Public method of exporting active views
-        /// </summary>
-        public void ExportDefiniteActiveViews()
-        {
-            GetActiveViews();
-
-            var pathToFileDataExchange = "DataExchange";
-            var nameExchangeFile_ActiveViews = "activeViews.json";
-
-            var currentActiveViews = SystemContext.Views.ActiveViews;
-            var listAliasActiveViews = new List<string>();
-            foreach (var currentActiveView in currentActiveViews)
-            {
-                listAliasActiveViews.Add(currentActiveView.Key.Name);
-            }
-
-            string json = JsonConvert.SerializeObject(listAliasActiveViews);
-
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pathToFileDataExchange);
-            Directory.CreateDirectory(path);
-            File.WriteAllText(Path.Combine(path, nameExchangeFile_ActiveViews), json);
-        }
-        
-        /// <summary>
-        /// Public method of exporting a blank list
-        /// </summary>
-        public void ExportEmptyActiveViews()
-        {
-            var pathToFileDataExchange = "DataExchange";
-            var nameExchangeFile_ActiveViews = "activeViews.json";
-
-            var listAliasActiveViews = new List<string>();
-
-            string json = JsonConvert.SerializeObject(listAliasActiveViews);
-
-            var path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, pathToFileDataExchange);
-            Directory.CreateDirectory(path);
-            File.WriteAllText(Path.Combine(path, nameExchangeFile_ActiveViews), json);
-        }
-
-        /// <summary>
-        /// Getting control from active views
-        /// </summary>
-        /// <typeparam name="T">Type to which the control will be given</typeparam>
-        /// <param name="alias">Alias Control</param>
-        /// <returns>Object of control</returns>
-        public T GetControl<T>(string alias) where T : class
-        {
-            var iterationsCount = SystemContext.GlobalConfiguraionFramework.SearchControlNumberOfRetries;
-
-            while (iterationsCount>0)
-            {
-                var result = TryGetControl<T>(alias);
-
-                if (result != null)
-                    return result;
-
-                if(iterationsCount!=1)
-                    Thread.Sleep(SystemContext.GlobalConfiguraionFramework.SearchControlTimeBetweenRetries);
-
-                --iterationsCount;
-            }
-
-            var strException = $"Control {alias} is not found in active views.\n" +
-                               $"Аctive views:";
-            foreach (var activeView in SystemContext.Views.ActiveViews)
-            {
-                strException += "\n" + activeView.Key;
-            }
-            
-            throw new Exception(strException);
-        }
-
-        /// <summary>
         /// Getting control from active views 
         /// </summary>
         /// <typeparam name="T">Type to which the control will be given</typeparam>
         /// <param name="alias">Alias Control</param>
         /// <returns>Object of control</returns>
-        private T TryGetControl<T>(string alias) where T : class
+        internal T TryGetControl<T>(string alias) where T : class
         {
             GetActiveViews();
 
@@ -475,7 +354,7 @@ namespace Twinkle.View
         /// </summary>
         /// <param name="alias">Alias Control</param>
         /// <returns>Type of control</returns>
-        private Type TryGetTypeControl(string alias)
+        internal Type TryGetTypeControl(string alias)
         {
             GetActiveViews();
 
@@ -497,35 +376,5 @@ namespace Twinkle.View
             return null;
         }
 
-        /// <summary>
-        /// Getting control type
-        /// </summary>
-        /// <param name="alias">Alias Control</param>
-        /// <returns>Type of control</returns>
-        public Type GetTypeControl(string alias)
-        {
-            var iterationsCount = SystemContext.GlobalConfiguraionFramework.SearchControlNumberOfRetries;
-
-            while (iterationsCount > 0)
-            {
-                var result = TryGetTypeControl(alias);
-
-                if (result != null)
-                    return result;
-
-                if (iterationsCount != 1)
-                    Thread.Sleep(SystemContext.GlobalConfiguraionFramework.SearchControlTimeBetweenRetries);
-
-                --iterationsCount;
-            }
-            var strException = $"Control {alias} is not found in active views.\n" +
-                               $"Active views:";
-            foreach (var activeView in SystemContext.Views.ActiveViews)
-            {
-                strException += "\n" + activeView.Key;
-            }
-            
-            throw new Exception(strException);
-        }
     }
 }

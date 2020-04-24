@@ -22,4 +22,8 @@
       <Compile Remove="Twinkle.View.AdditionalSettings.cs" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Interfaces" />
+    </ItemGroup>
+
 </Project>
