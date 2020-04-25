@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using NUnit.Framework;
 using Twinkle.View.Test.Infrastructure.Views;
 
@@ -10,21 +11,22 @@ namespace Twinkle.View.Test.Tests
         [Test]
         public void ExecuteOperationWithPreHook()
         {
-            var exceptionPre = Assert.Throws<Exception>(() => TvView.GetView<MainGooglePage>().SearchInput.SetValue("value"));
+            TwinkleView.Context.Set("threadId", Thread.CurrentThread.ManagedThreadId);
+            var exceptionPre = Assert.Throws<Exception>(() => TwinkleView.GetView<MainGooglePage>().SearchInput.SetValue("value"));
             Assert.That(exceptionPre.Message.Equals("before set value for search input"));
         }
         
         [Test]
         public void ExecuteOperationWithPostHook()
         {
-            var exception = Assert.Throws<Exception>(() => TvView.GetView<MainGooglePage>().SearchInput.GetValue());
+            var exception = Assert.Throws<Exception>(() => TwinkleView.GetView<MainGooglePage>().SearchInput.GetValue());
             Assert.That(exception.Message.Equals("after get value for search input"));
         }
         
         [Test]
         public void ExecuteOperationWithoutHook()
         {
-            Assert.DoesNotThrow(() => TvView.GetView<MainGooglePage>().SearchInGoogle.Click());
+            Assert.DoesNotThrow(() => TwinkleView.GetView<MainGooglePage>().SearchInGoogle.Click());
         }
     }
 }

@@ -4,7 +4,7 @@ namespace Twinkle.View.Test.Infrastructure.Controls
 {
     public class Button:Control
     {
-        public Button(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
+        public Button(string alias, string xpath, string css) : base(alias, xpath, css)
         {
         }
 

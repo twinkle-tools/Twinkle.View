@@ -1,25 +1,16 @@
 ﻿using System.Collections.Generic;
 using Twinkle.View.Enums;
+using Twinkle.View.Infrastructure;
 
 namespace Twinkle.View
 {
     public abstract class View
     {
-        public TwinkleView TwinkleView { get; set; }
+        internal Infrastructure.InternalTwinkleView InternalTwinkleView { get; set; }
         public virtual bool IsActive { get; set; }
         public delegate bool ViewDefinitionCriteriaDelegat();
         public List<ViewDefinitionCriteriaDelegat> ViewDefinitionCriteria { get; private set; }
         public List<Hook> Hooks { get; private set; }
-
-        public View()
-        {
-            
-        }
-
-        public View(TwinkleView twinkleView)
-        {
-            TwinkleView = twinkleView;
-        }
 
         /// <summary>
         /// Method of adding a criterion for determining the activity of a view

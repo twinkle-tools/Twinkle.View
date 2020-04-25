@@ -21,7 +21,7 @@ namespace Twinkle.View.Attributes
         /// Alias operations
         /// </summary>
         public string Alias { get; set; }
-        
+
         /// <summary>
         /// Control method marked with Operation attribute
         /// </summary>
@@ -51,7 +51,7 @@ namespace Twinkle.View.Attributes
         {
             //todo Check configuration parameter "automatic_view_detection"
             ClearActiveViews();
-            ((TwinkleView)_instanse.GetType().GetProperty("TwinkleView").GetValue(_instanse)).GetActiveViews();
+            TwinkleView.InternalTwinkleView.GetActiveViews();
             FindHooks(true);
         }
         
@@ -60,7 +60,7 @@ namespace Twinkle.View.Attributes
         /// </summary>
         private void ClearActiveViews()
         {
-            var activeViews = ((TwinkleView)_instanse.GetType().GetProperty("TwinkleView").GetValue(_instanse)).SystemContext.Views.ActiveViews;
+            var activeViews = TwinkleView.InternalTwinkleView.SystemContext.Views.ActiveViews;
             if (activeViews != null)
                 activeViews.Clear();
         }

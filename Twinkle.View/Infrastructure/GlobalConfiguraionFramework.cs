@@ -6,14 +6,14 @@ using Microsoft.Extensions.Configuration;
 
 namespace Twinkle.View.Infrastructure
 {
-    internal class GlobalConfiguraionFramework
+    public class GlobalConfiguraionFramework
     {
-        internal bool AutomaticViewDetection { get; set; }
-        internal List<string> DllContainingViews { get; set; }
-        internal List<string> DllContainingControls { get; set; }
-        internal int SearchControlNumberOfRetries { get; set; }
-        internal int SearchControlTimeBetweenRetries { get; set; }
-        internal bool LoggingEnable { get; set; }
+        public bool AutomaticViewDetection { get; internal set; }
+        public List<string> DllContainingViews { get; internal set; }
+        public List<string> DllContainingControls { get; internal set; }
+        public int SearchControlNumberOfRetries { get; internal set; }
+        public int SearchControlTimeBetweenRetries { get; internal set; }
+        public bool LoggingEnable { get; internal set; }
 
         public GlobalConfiguraionFramework(IConfiguration config)
         {
