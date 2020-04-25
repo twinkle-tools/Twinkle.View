@@ -18,7 +18,6 @@ and support existing ones.
 
 ###### View class
 ```
-[View(alias: "Main Google page")]
 public class MainGooglePage:View
 {
     public MainGooglePage()
@@ -97,20 +96,12 @@ public class Button:Control
 ```
 [TestFixture]
 public class Hooks
-{
-    private TwinkleView _twinkleView;
-        
-    [SetUp]
-    public void SetUp()
-    {
-        _twinkleView = new TwinkleView();
-    }
-        
+{ 
     [Test]
     public void ExecuteOperationWithPreHook()
     {
-        _twinkleView.GetView<MainGooglePage>().SearchInput.SetValue("value");
-        _twinkleView.GetView<MainGooglePage>().SearchInGoogle.Click();
+        TwinkleView.GetView<MainGooglePage>().SearchInput.SetValue("value");
+        TwinkleView.GetView<MainGooglePage>().SearchInGoogle.Click();
     }        
 }
 ```

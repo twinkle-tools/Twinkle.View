@@ -11,6 +11,6 @@
     "dll_containing_controls": "Twinkle.View.Test"
   },
   "common": {
-    "logging_enable": false
+    "logging_enable": true
   }
 }
