@@ -46,11 +46,6 @@ public class MainGooglePage:View
 ```
 public class TextBox:Control
 {
-    public TextBox(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
-    {
-
-    }
-
     [Operation(Alias = "SetValue")]
     public void SetValue(string value)
     {
@@ -79,11 +74,6 @@ public class TextBox:Control
 ```
 public class Button:Control
 {
-    public Button(string alias, string xpath, string css, TwinkleView twinkleView) : base(alias, xpath, css, twinkleView)
-    {
-
-    }
-
     [Operation(Alias = "Click")]
     public void Click()
     {
