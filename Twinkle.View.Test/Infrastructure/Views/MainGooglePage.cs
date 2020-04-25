@@ -5,7 +5,6 @@ using Twinkle.View.Test.Infrastructure.Controls;
 
 namespace Twinkle.View.Test.Infrastructure.Views
 {
-    [View(alias: "Main Google page")]
     public class MainGooglePage:View
     {
         public MainGooglePage()

@@ -6,7 +6,8 @@ namespace Twinkle.View
 {
     public abstract class View
     {
-        internal Infrastructure.InternalTwinkleView InternalTwinkleView { get; set; }
+        public string Alias { get; set; }
+        public string Prefix { get; set; }
         public virtual bool IsActive { get; set; }
         public delegate bool ViewDefinitionCriteriaDelegat();
         public List<ViewDefinitionCriteriaDelegat> ViewDefinitionCriteria { get; private set; }

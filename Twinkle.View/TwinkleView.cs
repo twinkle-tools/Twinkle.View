@@ -49,7 +49,6 @@ namespace Twinkle.View
             typeof(T).GetProperty("Alias")?.SetValue(resultControl, alias);
             typeof(T).GetProperty("XPath")?.SetValue(resultControl, xpath);
             typeof(T).GetProperty("Css")?.SetValue(resultControl, css);
-            typeof(T).GetProperty("TwinkleView")?.SetValue(resultControl, targetFramework);
             return resultControl;
         }
 

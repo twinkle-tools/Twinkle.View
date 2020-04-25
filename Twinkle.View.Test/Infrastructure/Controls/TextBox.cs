@@ -1,14 +1,9 @@
-using System;
 using Twinkle.View.Attributes;
 
 namespace Twinkle.View.Test.Infrastructure.Controls
 {
     public class TextBox:Control
     {
-        public TextBox(string alias, string xpath, string css) : base(alias, xpath, css)
-        {
-        }
-
         [Operation(Alias = "SetValue")]
         public void SetValue(string value)
         {

@@ -143,7 +143,7 @@ namespace Twinkle.View.Infrastructure
 
                     foreach (Type type in collectionTypes)
                     {
-                        if (type.GetCustomAttributes(typeof(ViewAttribute), false).Length > 0)
+                        if (type.IsSubclassOf(typeof(View)))
                         {
                             DI.RunTimeRegister(type, Lifestyle.Singleton);                            
                             AllViews.Add(type, null);
@@ -183,7 +183,6 @@ namespace Twinkle.View.Infrastructure
             foreach (var view in AllViews)
             {
                 var viewInstance = SystemContext.DI.Container.GetInstance(view.Key);
-                viewInstance.GetType().GetProperty("TwinkleView")?.SetValue(viewInstance, this);
                 SystemContext.Views.AllViews[view.Key] = viewInstance;
             }
             swConfigureContext.Stop();
@@ -211,12 +210,11 @@ namespace Twinkle.View.Infrastructure
                         var controlAttribute = propertyInfo.GetCustomAttributes(typeof(ControlAttribute), true).FirstOrDefault() as
                             ControlAttribute;
 
-                        var prefix = ((ViewAttribute)view.Key.GetCustomAttribute(typeof(ViewAttribute), true)).Prefix;
-                        Control newVal = (Control)Activator.CreateInstance(
-                            type,
-                            prefix + controlAttribute.Alias,
-                            controlAttribute.XPath,
-                            controlAttribute.Css);
+                        var prefix = ((View)view.Value).Prefix;
+                        Control newVal = (Control)Activator.CreateInstance(type);
+                        newVal.Alias = prefix + controlAttribute.Alias;
+                        newVal.XPath = controlAttribute.XPath;
+                        newVal.Css = controlAttribute.Css;
 
                         var listHooks = ((View) view.Value).Hooks.FindAll(x => x.AliasControl.Equals(controlAttribute.Alias));
                         newVal.Hooks = new List<Hook>(listHooks);
