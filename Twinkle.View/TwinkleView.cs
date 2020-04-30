@@ -57,6 +57,18 @@ namespace Twinkle.View
             var targetFramework = ThreadsManager.GetTargetFramework();
             targetFramework.GetActiveViews();
         }
+        
+        public static Dictionary<Type, object> GetActiveViews()
+        {
+            var targetFramework = ThreadsManager.GetTargetFramework();
+            return targetFramework.SystemContext.Views.ActiveViews;
+        }
+        
+        public static Dictionary<Type, object> GetAllViews()
+        {
+            var targetFramework = ThreadsManager.GetTargetFramework();
+            return targetFramework.SystemContext.Views.AllViews;
+        }
 
         //todo переделать
         public static void ExportDefiniteActiveViews()
