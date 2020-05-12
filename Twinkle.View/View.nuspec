@@ -3,7 +3,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Twinkle.View</id>
-        <version>1.1.0-beta3</version>
+        <version>1.1.0-beta4</version>
         <authors>Twinkle</authors>
         <owners>Twinkle</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>

@@ -9,7 +9,6 @@ namespace Twinkle.View.Infrastructure
         internal void Configure()
         {
             Container = new Container();
-            Container.Register<Context>(Lifestyle.Transient);
         }
 
         internal void RunTimeRegister(Type type, Lifestyle lifestyle)

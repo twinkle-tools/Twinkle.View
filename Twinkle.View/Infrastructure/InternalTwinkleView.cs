@@ -171,11 +171,13 @@ namespace Twinkle.View.Infrastructure
             var swConfigureContext = new Stopwatch();
             swConfigureContext.Start();
 
-            SystemContext = DI.Container.GetInstance<Context>();
-            SystemContext.DI = DI;
-            SystemContext.Config = Config;
-            SystemContext.Views = new Views();
-            SystemContext.GlobalConfiguraionFramework = GlobalConfiguraionFramework;
+            SystemContext = new Context
+            {
+                DI = DI,
+                Config = Config,
+                Views = new Views(),
+                GlobalConfiguraionFramework = GlobalConfiguraionFramework
+            };
 
             if (SystemContext.Views.AllViews == null)
                 SystemContext.Views.AllViews = new Dictionary<Type, object>();
