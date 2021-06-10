@@ -1,3 +1,6 @@
+*.user
 */bin/**
 */obj/**
 .idea/**
+*/.idea/**
+*/.idea.Twinkle.View/**
